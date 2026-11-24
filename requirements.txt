@@ -11,3 +11,4 @@ ipywidgets>=8.0
 xlrd
 openpyxl
 requests
+nbconvert

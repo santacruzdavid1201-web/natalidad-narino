@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatorio · Natalidad, crecimiento y trabajo en Nariño</title>
+<link rel="stylesheet" href="estilo.css">
+<script src="plotly.min.js"></script>
+<script src="mapa.js"></script>
+</head>
+<body>
+<header><div class="envoltura">
+  <div class="etiqueta">Observatorio estadístico · Universidad de Nariño</div>
+  <h1>Natalidad, crecimiento económico y mercado laboral en Nariño</h1>
+  <p>Series departamentales armonizadas del DANE (1985–2050), estimaciones de los cuatro métodos del artículo y estado de las fuentes oficiales. Los datos se regeneran con el notebook del repositorio.</p>
+</div></header>
+<nav><div class="envoltura">
+  <a href="#resumen">Resumen</a><a href="#series">Series</a><a href="#mapa">Mapa</a><a href="#demografia">Transición</a><a href="#metodos">Métodos</a><a href="#fuentes">Fuentes</a><a href="#descargas">Descargas</a>
+</div></nav>
+<main>
+<section id="resumen">
+  <h2>Nariño en cifras</h2>
+  <p class="nota">Valores calculados por el notebook; se actualizan cuando el rastreador detecta nuevas versiones de las fuentes.</p>
+  <div class="kpis" id="kpis"></div>
+</section>
+
+<section id="series">
+  <h2>Series por departamento</h2>
+  <p class="nota">Seleccione un indicador y hasta seis departamentos (Ctrl o Cmd para elegir varios). Nariño se resalta en naranja.</p>
+  <div class="tarjeta">
+    <div class="controles">
+      <label>Indicador<select id="indicador"></select></label>
+      <label>Departamentos<select id="deptos" multiple></select></label>
+    </div>
+    <div id="g_series" class="grafico"></div>
+  </div>
+</section>
+
+<section id="mapa">
+  <h2>Mapa departamental</h2>
+  <p class="nota">Valor del indicador en el año elegido. Gris: sin dato (las variables laborales cubren 23 departamentos; la natalidad y la fecundidad estimadas por el DANE llegan hasta 2017).</p>
+  <div class="tarjeta">
+    <div class="controles">
+      <label>Indicador<select id="indicador_mapa"></select></label>
+      <label>Año <span id="anio_txt"></span><input type="range" id="anio" min="2006" max="2024" value="2024"></label>
+    </div>
+    <div id="g_mapa" class="grafico" style="min-height:560px"></div>
+  </div>
+</section>
+
+<section id="demografia">
+  <h2>Transición demográfica, 1985–2050</h2>
+  <p class="nota">Tasa bruta de natalidad, proporción en edad de trabajar y razones de dependencia de Nariño frente a Colombia (proyecciones del DANE desde 2018).</p>
+  <div class="rejilla">
+    <div class="tarjeta"><div id="g_tbn" class="grafico"></div></div>
+    <div class="tarjeta"><div id="g_dep" class="grafico"></div></div>
+  </div>
+</section>
+
+<section id="metodos">
+  <h2>Confrontación de los cuatro métodos</h2>
+  <p class="nota">Efecto de un punto por mil de natalidad rezagada 15 años: sobre el crecimiento anual per cápita (p.p.) y sobre la tasa global de participación (p.p.). Barras: intervalo de confianza al 95 %.</p>
+  <div class="tarjeta"><div id="g_metodos" class="grafico" style="min-height:560px"></div></div>
+  <div class="tarjeta" style="margin-top:1rem;overflow-x:auto"><table id="t_metodos"></table></div>
+</section>
+
+<section id="fuentes">
+  <h2>Rastreador de fuentes oficiales</h2>
+  <p class="nota">Revisión semanal automática (GitHub Actions). «No accesible» indica que el servidor oficial rechaza conexiones desde la nube; en ese caso el notebook usa la copia original guardada en <code>datos/raw/</code>.</p>
+  <div class="tarjeta" style="overflow-x:auto"><table id="t_fuentes"><tr><td>El estado de las fuentes aparecerá después de la primera ejecución del rastreador.</td></tr></table></div>
+</section>
+
+<section id="descargas">
+  <h2>Descargas</h2>
+  <p class="nota">Bases armonizadas que usa el artículo (CSV, UTF-8).</p>
+  <ul id="descargas_lista"></ul>
+</section>
+</main>
+<footer>
+  Proyecto de Seminario de Investigación Regional II, Programa de Economía, Universidad de Nariño. Autores: Francisco Quiroz Oñate y Santiago Enríquez Villarreal.
+  Código y datos: <a href="https://github.com/santacruzdavid1201-web/natalidad-narino">github.com/santacruzdavid1201-web/natalidad-narino</a>. Fuente de los datos: DANE. <span id="generado"></span>
+</footer>
+<script>
+const IND = {
+  g: ["Crecimiento del PIB real per cápita (%)", "panel"], ypc: ["PIB real per cápita (millones de $ de 2015)", "panel"],
+  tbn: ["Tasa bruta de natalidad (‰)", "panel"], tgf: ["Tasa global de fecundidad (hijos por mujer)", "panel"],
+  pet_sh: ["Población de 15 a 64 años (%)", "panel"], dep_juv: ["Dependencia juvenil (por 100 de 15–64)", "panel"],
+  dep_vej: ["Dependencia de vejez (por 100 de 15–64)", "panel"], tgp: ["Tasa global de participación (%)", "panel"],
+  to: ["Tasa de ocupación (%)", "panel"], td: ["Tasa de desocupación (%)", "panel"],
+  agro_sh: ["Participación agropecuaria en el PIB (%)", "panel"], minas_sh: ["Participación minero-energética en el PIB (%)", "panel"]
+};
+const NAR = "52", COL = "#2a78d6", NARC = "#eb6834";
+const PALETA = ["#2a78d6", "#1b9e77", "#7b3294", "#a6761d", "#666666", "#e7298a"];
+const fmt = (x, d = 1) => (x === null || x === undefined || isNaN(x)) ? "—" : Number(x).toLocaleString("es-CO", {minimumFractionDigits: d, maximumFractionDigits: d});
+const LAY = () => ({margin: {l: 55, r: 15, t: 30, b: 45}, paper_bgcolor: "#fff", plot_bgcolor: "#fff", font: {family: "Source Sans 3, Segoe UI, sans-serif", size: 13},
+             xaxis: {gridcolor: "#eee"}, yaxis: {gridcolor: "#eee"}, legend: {orientation: "h", y: -0.18}});
+let D, GEO;
+
+async function iniciar() {
+  D = await (await fetch("datos.json")).json();
+  GEO = await (await fetch("mapa.geojson")).json();
+  document.getElementById("generado").textContent = "Datos generados: " + D.meta.generado + ".";
+  kpis(); selectores(); series(); mapa(); demografia(); metodos(); descargas();
+  try { fuentes(await (await fetch("estado_fuentes.json")).json()); } catch (e) {}
+}
+
+function kpis() {
+  const K = D.clave, p = D.panel[NAR];
+  const ult = (v) => { for (let i = p.anio.length - 1; i >= 0; i--) if (p[v][i] !== null) return [p[v][i], p.anio[i]]; return [null, null]; };
+  const [tgp, at] = ult("tgp");
+  const items = [
+    [fmt(K.tbn_nar_1991, 1) + " → " + fmt(K.tbn_nar_2009, 1), "TBN de Nariño, 1991 → 2009 (‰)", "Caída de " + fmt(-K.delta_tbn_nar, 1) + " puntos"],
+    [fmt(K.g_media_nar, 2) + " %", "Crecimiento anual per cápita, 2006–2024", "Promedio de Nariño"],
+    [fmt(tgp, 1) + " %", "Tasa global de participación, " + at, "Agregado 23 dptos.: " + fmt(K.tgp_agg_2024, 1) + " %"],
+    [fmt(D.inf_media[NAR], 1) + " %", "Informalidad en Pasto, 2021–2024", "Media de 23 capitales: " + fmt(K.inf_23_media, 1) + " %"],
+    [fmt(-K.beta_largo_plazo, 3), "p.p. de crecimiento por punto ‰ de TBN", "Diferencias largas (p = " + fmt(K.p_largo_plazo, 3) + ")"],
+    [fmt(-K.gmm_tbn, 3), "p.p. por punto ‰ de TBN, System GMM", "Corto plazo (p = " + fmt(K.gmm_tbn_p, 3) + ")"],
+    [String(K.anio_cruce_dep), "Año en que la dependencia de vejez alcanza a la juvenil", "Proyección DANE para Nariño"]
+  ];
+  document.getElementById("kpis").innerHTML = items.map(([v, t, d]) => `<div class="kpi"><div class="v">${v}</div><div class="t">${t}</div><div class="d">${d}</div></div>`).join("");
+}
+
+function selectores() {
+  const s1 = document.getElementById("indicador"), s2 = document.getElementById("indicador_mapa"), s3 = document.getElementById("deptos");
+  for (const [k, [n]] of Object.entries(IND)) { s1.add(new Option(n, k)); s2.add(new Option(n, k)); }
+  s1.value = "g"; s2.value = "g";
+  for (const d of D.deptos) { const o = new Option(d.depto, d.dp); o.selected = ["52", "00", "76", "19"].includes(d.dp); s3.add(o); }
+  s1.onchange = series; s3.onchange = series; s2.onchange = mapa;
+  document.getElementById("anio").oninput = mapa;
+}
+
+function series() {
+  const v = document.getElementById("indicador").value;
+  const sel = [...document.getElementById("deptos").selectedOptions].map(o => o.value).slice(0, 6);
+  let k = 0;
+  const trazas = sel.map(dp => {
+    const p = D.panel[dp], nom = D.deptos.find(d => d.dp === dp).depto, esN = dp === NAR;
+    return {x: p.anio, y: p[v], name: nom, mode: "lines+markers", line: {width: esN ? 3.5 : 2, color: esN ? NARC : PALETA[k++ % PALETA.length]}, marker: {size: 5}, connectgaps: false};
+  });
+  Plotly.react("g_series", trazas, {...LAY(), title: {text: IND[v][0], font: {size: 15}}, hovermode: "x unified"}, {responsive: true, displaylogo: false});
+}
+
+function mapa() {
+  const v = document.getElementById("indicador_mapa").value, a = +document.getElementById("anio").value;
+  document.getElementById("anio_txt").textContent = a;
+  const valores = {}, nombres = {};
+  for (const d of D.deptos) {
+    if (d.dp === "00") continue;
+    const p = D.panel[d.dp], i = p.anio.indexOf(a);
+    valores[d.dp] = i >= 0 ? p[v][i] : null; nombres[d.dp] = d.depto;
+  }
+  dibujarMapa("g_mapa", GEO, "DPTO_CCDGO", valores, nombres, IND[v][0] + " · " + a);
+}
+
+function demografia() {
+  const n = D.demografia[NAR], c = D.demografia["00"];
+  Plotly.react("g_tbn", [
+    {x: n.anio, y: n.tbn, name: "TBN Nariño", line: {color: NARC, width: 3}},
+    {x: c.anio, y: c.tbn, name: "TBN Colombia", line: {color: COL, width: 2}},
+    {x: n.anio, y: n.pet_sh, name: "15–64 años Nariño (%)", yaxis: "y2", line: {color: NARC, dash: "dot"}},
+    {x: c.anio, y: c.pet_sh, name: "15–64 años Colombia (%)", yaxis: "y2", line: {color: COL, dash: "dot"}}
+  ], {...LAY(), title: {text: "Natalidad (‰) y población en edad de trabajar (%)", font: {size: 15}},
+      yaxis: {title: "‰", gridcolor: "#eee"}, yaxis2: {title: "%", overlaying: "y", side: "right", showgrid: false},
+      shapes: [{type: "line", x0: 2018, x1: 2018, yref: "paper", y0: 0, y1: 1, line: {dash: "dot", color: "#999"}}]}, {responsive: true, displaylogo: false});
+  Plotly.react("g_dep", [
+    {x: n.anio, y: n.dep_juv, name: "Juvenil Nariño", line: {color: NARC, width: 3}},
+    {x: n.anio, y: n.dep_vej, name: "Vejez Nariño", line: {color: NARC, dash: "dash"}},
+    {x: c.anio, y: c.dep_juv, name: "Juvenil Colombia", line: {color: COL, width: 2}},
+    {x: c.anio, y: c.dep_vej, name: "Vejez Colombia", line: {color: COL, dash: "dash"}}
+  ], {...LAY(), title: {text: "Razones de dependencia (por 100 personas de 15–64)", font: {size: 15}}}, {responsive: true, displaylogo: false});
+}
+
+function metodos() {
+  const M = D.metodos;
+  const col = {"Panel EF": COL, "Diferencias largas": "#1b9e77", "System GMM": "#7b3294", "ARDL": NARC};
+  const grupos = [...new Set(M.map(r => r.Resultado))];
+  const trazas = M.map((r, i) => ({x: [r.coef], y: [r.Estimador], xaxis: r.Resultado === grupos[0] ? "x" : "x2", yaxis: r.Resultado === grupos[0] ? "y" : "y2",
+    error_x: {type: "data", symmetric: false, array: [r.ls - r.coef], arrayminus: [r.coef - r.li], color: col[r["Método"]], thickness: 2.2},
+    mode: "markers", marker: {size: 10, color: col[r["Método"]]}, name: r["Método"], showlegend: false,
+    hovertemplate: r.Estimador + "<br>coef. %{x:.3f}<extra></extra>"}));
+  Plotly.react("g_metodos", trazas, {...LAY(), grid: {rows: 2, columns: 1, pattern: "independent", roworder: "top to bottom", ygap: 0.25},
+    xaxis: {title: "Crecimiento (p.p.)", zeroline: true, zerolinecolor: "#777", gridcolor: "#eee"}, xaxis2: {title: "Participación laboral (p.p.)", zeroline: true, zerolinecolor: "#777", gridcolor: "#eee"},
+    yaxis: {automargin: true, autorange: "reversed"}, yaxis2: {automargin: true, autorange: "reversed"}, margin: {l: 10, r: 15, t: 20, b: 50}}, {responsive: true, displaylogo: false});
+  document.getElementById("t_metodos").innerHTML = "<tr><th>Resultado</th><th>Estimador</th><th>Método</th><th>Coef.</th><th>E. E.</th><th>IC 95 %</th></tr>" +
+    M.map(r => `<tr><td>${r.Resultado}</td><td>${r.Estimador}</td><td>${r["Método"]}</td><td class="n">${fmt(r.coef, 3)}</td><td class="n">${fmt(r.ee, 3)}</td><td class="n">[${fmt(r.li, 3)}; ${fmt(r.ls, 3)}]</td></tr>`).join("");
+}
+
+function fuentes(E) {
+  const clase = (e) => e.startsWith("versión nueva") ? "nuevo" : (e.startsWith("sin cambios") || e === "primera revisión") ? "ok" : "no";
+  document.getElementById("t_fuentes").innerHTML = `<tr><th>Fuente</th><th>Entidad</th><th>Estado</th><th>HTTP</th><th>Última modificación</th><th>Revisado</th></tr>` +
+    E.fuentes.map(f => `<tr><td><a href="${f.url}">${f.nombre}</a></td><td>${f.entidad}</td><td><span class="chip ${clase(f.estado)}">${f.estado}</span></td><td>${f.estado_http ?? "—"}</td><td>${f.ultima_modificacion ?? f.ultimo_dato ?? "—"}</td><td>${f.revisado}</td></tr>`).join("");
+}
+
+function descargas() {
+  const raiz = "https://github.com/santacruzdavid1201-web/natalidad-narino/raw/main/salidas/";
+  const L = [["datos/panel_departamental.csv", "Panel departamento-año 2005–2024 (PIB, natalidad, estructura por edades, mercado laboral)"],
+             ["datos/demografia_1985_2050.csv", "Indicadores demográficos 1985–2050"], ["datos/informalidad_capitales.csv", "Informalidad en 23 ciudades capitales, 2021–2024"],
+             ["resultados_clave.json", "Cifras citadas en el artículo"], ["tablas/Tabla_9_confrontacion.csv", "Confrontación de métodos"]];
+  document.getElementById("descargas_lista").innerHTML = L.map(([f, t]) => `<li><a href="${raiz + f}">${f}</a> · ${t}</li>`).join("");
+}
+iniciar();
+</script>
+</body>
+</html>

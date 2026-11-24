@@ -1,0 +1,11 @@
+﻿Variable,Definición,Fuente (DANE),Unidad,Transformación,Cobertura
+g,Crecimiento del PIB real per cápita,Cuentas departamentales base 2015 + proyecciones de población,%,100·Δln(PIB real/población),2006–2024 · 33 dptos.
+tbn_l15,Tasa bruta de natalidad rezagada 15 años,Tasas de fecundidad por edad y población femenina (DANE),Nacidos por mil hab.,Σ f(edad)·mujeres(edad)/población·1000; rezago t−15,2006–2024 · 33 dptos.
+pet_sh,Población en edad de trabajar 15–64,Proyecciones de población por edad simple,% de la población,P15–64/P·100; Δln en especificación alternativa,2006–2024 · 33 dptos.
+dep_juv,Razón de dependencia juvenil,Proyecciones de población por edad simple,Por cada 100 de 15–64,P0–14/P15–64·100,2006–2024 · 33 dptos.
+tgp,Tasa global de participación,"GEIH, serie departamental 2007–2025",%,Fuerza de trabajo/PET (15+),2007–2024 · 23 dptos.
+to,Tasa de ocupación,"GEIH, serie departamental 2007–2025",%,Ocupados/PET (15+),2007–2024 · 23 dptos.
+td,Tasa de desocupación,"GEIH, serie departamental 2007–2025",%,Desocupados/fuerza de trabajo,2007–2024 · 23 dptos.
+inf_2124,Informalidad (moderadora),"GEIH-EISS, ciudad capital",% de ocupados,Promedio 2021–2024 de trimestres calendario; centrada,2021–2024 · 23 ciudades capitales
+agro_sh_l1,Participación agropecuaria (control),"Valor agregado por actividad, precios corrientes",% del PIB,Rezago t−1,2006–2024 · 33 dptos.
+minas_sh_l1,Participación minero-energética (control),"Valor agregado por actividad, precios corrientes",% del PIB,Rezago t−1,2006–2024 · 33 dptos.

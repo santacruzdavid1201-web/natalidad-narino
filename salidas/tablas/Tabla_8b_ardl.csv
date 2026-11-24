@@ -1,0 +1,13 @@
+﻿Concepto,Valor,Detalle
+"Orden elegido por AIC (p, q)","(1, 0)",
+φ: TGP (t−1),0.482**,(0.203)
+θ0: TBN (t−15),-3.379,(4.322)
+θ1: TBN (t−16),3.172,(4.191)
+δ: Dummy 2020,-4.924**,(2.070)
+Multiplicador de largo plazo (θ0+θ1)/(1−φ),-0.399,(0.365)
+"Prueba de límites PSS (F, caso 3)",2.920,p asintótico I(0) = 0.131 · I(1) = 0.285
+Breusch-Godfrey AR(1),0.045,p = 0.832
+Jarque-Bera (normalidad),1.471,p = 0.479
+Breusch-Pagan (heterocedasticidad),6.205,p = 0.184
+RESET de Ramsey,4.007,p = 0.071
+R² / observaciones,0.753,17

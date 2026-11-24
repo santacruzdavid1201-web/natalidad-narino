@@ -1,0 +1,7 @@
+﻿Prueba,Estadístico,Valor p,Nota
+F de poolabilidad (efectos fijos),13.489,0.0,H0: sin efectos fijos
+Pesaran CD (dependencia transversal),0.134,0.894,H0: independencia; correlación media 0.001
+Wooldridge (autocorrelación AR(1)),1.748,0.196,H0: sin autocorrelación; coef. -0.40 vs −0.5
+Wald modificado (heterocedasticidad),1649.666,0.0,H0: varianza homogénea entre departamentos
+Bootstrap salvaje por conglomerados: TBN (t−15),0.866,0.465,H0: β1 = 0; 1999 réplicas Rademacher
+Aleatorización (placebo): TBN × Nariño,-0.186,0.606,Nariño ocupa el puesto 13 de 33

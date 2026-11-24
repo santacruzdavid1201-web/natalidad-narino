@@ -1,7 +1,9 @@
-﻿Estimador,Método,coef,ee,li,ls
-"Efectos fijos, resto del país (β1)",Panel EF,0.069,0.079,-0.085,0.223
-"Efectos fijos, Nariño (β1+β2)",Panel EF,-0.116,0.06,-0.234,0.002
-Diferencias largas entre departamentos,Diferencias largas,-0.149,0.06,-0.267,-0.032
-"System GMM, corto plazo",System GMM,-0.06,0.022,-0.103,-0.018
-"System GMM, largo plazo β/(1−ρ)",System GMM,-0.072,0.02,-0.111,-0.034
-"ARDL Nariño, largo plazo",ARDL,-0.399,0.365,-1.115,0.317
+﻿Resultado,Estimador,Método,coef,ee,li,ls
+a) Crecimiento,"Efectos fijos, resto del país (β1)",Panel EF,0.069,0.079,-0.085,0.223
+a) Crecimiento,"Efectos fijos, Nariño (β1+β2)",Panel EF,-0.116,0.06,-0.234,0.002
+a) Crecimiento,Diferencias largas entre departamentos,Diferencias largas,-0.149,0.06,-0.267,-0.032
+a) Crecimiento,"System GMM, corto plazo",System GMM,-0.06,0.022,-0.103,-0.018
+a) Crecimiento,"System GMM, largo plazo β/(1−ρ)",System GMM,-0.072,0.02,-0.111,-0.034
+b) Participación laboral,"Efectos fijos, resto (23 dptos.)",Panel EF,0.973,0.965,-0.919,2.864
+b) Participación laboral,"Efectos fijos, Nariño",Panel EF,-0.443,0.823,-2.056,1.169
+b) Participación laboral,"ARDL Nariño, largo plazo",ARDL,-0.399,0.365,-1.115,0.317

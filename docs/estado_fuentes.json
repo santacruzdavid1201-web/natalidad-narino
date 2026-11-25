@@ -1,6 +1,6 @@
 {
  "proyecto": "Natalidad, crecimiento y mercado laboral en Nariño",
- "revisado": "2026-11-25 03:25 UTC",
+ "revisado": "2026-11-25 03:39 UTC",
  "fuentes": [
   {
    "estado_http": null,
@@ -15,7 +15,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/operaciones/PIB/anex-PIBDep-TotalDep-2025pr.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -30,7 +30,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/operaciones/PIB/anex-PIBDep-Activecono-2025pr.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -41,7 +41,7 @@
    "entidad": "DANE",
    "tipo": "pagina",
    "url": "https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-departamentales",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -56,7 +56,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/PPED-AreaSexoEdadDep-2018-2050_VP.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -71,7 +71,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/DCD-area-sexo-edad-proypoblacion-dep-2005-2017_VP.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -86,7 +86,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/censo2018/cambio-demografico/DCD-Fec-EstNal-Dep-1985-2017_VP.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -101,7 +101,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIHDepartamentos-2025.xls",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -116,7 +116,7 @@
    "entidad": "DANE",
    "tipo": "archivo",
    "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIHEISS-oct-dic2024.xlsx",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": 200,
@@ -130,7 +130,7 @@
    "entidad": "DANE vía GitHub",
    "tipo": "archivo",
    "url": "https://raw.githubusercontent.com/caticoa3/colombia_mapa/master/co_2018_MGN_DPTO_POLITICO.geojson",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -141,7 +141,7 @@
    "entidad": "Banco Mundial",
    "tipo": "api",
    "url": "https://api.worldbank.org/v2/country/COL/indicator/SP.DYN.TFRT.IN?format=json&per_page=80",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   },
   {
    "estado_http": null,
@@ -152,7 +152,7 @@
    "entidad": "Banco Mundial",
    "tipo": "api",
    "url": "https://api.worldbank.org/v2/country/COL/indicator/NY.GDP.PCAP.KD.ZG?format=json&per_page=80",
-   "revisado": "2026-11-25 03:25 UTC"
+   "revisado": "2026-11-25 03:39 UTC"
   }
  ]
 }

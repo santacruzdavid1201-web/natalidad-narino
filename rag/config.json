@@ -1,5 +1,5 @@
 {
- "proyecto": "Natalidad, crecimiento económico y mercado laboral en Nariño, 2005–2024",
+ "proyecto": "Natalidad, ventana demográfica, crecimiento económico y mercado laboral en Nariño, 2005–2024",
  "documentos": [
   {
    "tipo": "pdf",
@@ -34,7 +34,7 @@
   {
    "tipo": "tabla",
    "ruta": "salidas/tablas/Tabla_9_confrontacion.csv",
-   "nombre": "Tabla 10 del artículo",
+   "nombre": "Tabla 12 del artículo",
    "descripcion": "Confrontación de estimadores de los cuatro métodos"
   },
   {
@@ -46,8 +46,32 @@
   {
    "tipo": "tabla",
    "ruta": "salidas/tablas/Tabla_7_diagnosticos.csv",
-   "nombre": "Tabla 8 del artículo",
+   "nombre": "Tabla 10 del artículo",
    "descripcion": "Diagnósticos del panel de efectos fijos"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_7d_dividendo.csv",
+   "nombre": "Tabla 6 del artículo",
+   "descripcion": "Dividendo demográfico: ventana demográfica (PET y dependencia) y crecimiento"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_7e_contabilidad.csv",
+   "nombre": "Tabla 7 del artículo (panel A)",
+   "descripcion": "Contabilidad del crecimiento: productividad, ocupación y componente demográfico"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_7f_calidad_empleo.csv",
+   "nombre": "Tabla 7 del artículo (panel B)",
+   "descripcion": "Productividad por ocupado, subocupación e informalidad"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_8d_rezagos.csv",
+   "nombre": "Tabla 13 del artículo",
+   "descripcion": "Sensibilidad al rezago de 10, 15 y 20 años en los cuatro métodos"
   }
  ],
  "glosario_clave": {
@@ -79,12 +103,30 @@
   "gmm_ar2_p": "Valor p de la prueba AR(2)",
   "ardl_largo_plazo": "ARDL de Nariño: multiplicador de largo plazo de la TBN sobre la TGP",
   "bounds_F": "Estadístico F de la prueba de límites",
-  "bounds_p_I1": "Valor p de la prueba de límites (cota I(1))"
+  "bounds_p_I1": "Valor p de la prueba de límites (cota I(1))",
+  "bounds_p_boot": "Valor p de la prueba de límites por bootstrap",
+  "ardl_lr_ic_bi": "ARDL(1,0): límite inferior del IC 95 % bootstrap del largo plazo",
+  "ardl_lr_ic_bs": "ARDL(1,0): límite superior del IC 95 % bootstrap del largo plazo",
+  "aic_sin_tbn": "AIC del modelo de la TGP sin natalidad",
+  "v_pet_ef": "Ventana: cambio de la PET 15–64 (p.p.) por punto por mil de natalidad reciente (efectos fijos)",
+  "v_juv_ef": "Ventana: cambio de la dependencia juvenil por punto de natalidad reciente",
+  "g_pet_ef": "Efectos fijos: coeficiente de la PET sobre el crecimiento",
+  "g_pet_dl": "Diferencias largas: coeficiente del cambio de la PET sobre el crecimiento",
+  "g_pet_gmm": "System GMM: coeficiente de la PET sobre el crecimiento",
+  "dep_nar_2006": "Dependencia total de Nariño en 2006",
+  "dep_nar_2024": "Dependencia total de Nariño en 2024",
+  "ca_nar_2007_2019_prod": "Aporte de la productividad por ocupado al crecimiento per cápita de Nariño 2007–2019 (p.p.)",
+  "ca_nar_2007_2019_to": "Aporte de la tasa de ocupación al crecimiento per cápita de Nariño 2007–2019 (p.p.)",
+  "ca_nar_2007_2019_pet": "Aporte del componente demográfico al crecimiento per cápita de Nariño 2007–2019 (p.p.)",
+  "cal_nar_prod24": "PIB por ocupado de Nariño en 2024 (millones de pesos de 2015)",
+  "cal_agg_prod24": "PIB por ocupado del agregado de 23 departamentos en 2024",
+  "cal_nar_ts24": "Subocupación de Nariño en 2024 (% de ocupados)",
+  "cal_nar_inf": "Informalidad media de Pasto 2021–2024 (%)"
  },
  "preguntas": [
   {
    "pregunta": "¿Cuál es la pregunta de investigación del artículo?",
-   "debe_contener": "magnitud y dirección"
+   "debe_contener": "amplió la ventana demográfica"
   },
   {
    "pregunta": "¿Cuánto cayó la natalidad de Nariño entre 1991 y 2009?",
@@ -144,7 +186,19 @@
   },
   {
    "pregunta": "¿Qué recomienda el artículo para la política pública?",
-   "debe_contener": "productividad del empleo"
+   "debe_contener": "formalidad del empleo"
+  },
+  {
+   "pregunta": "¿La caída de la natalidad amplió la ventana demográfica?",
+   "debe_contener": "H1a"
+  },
+  {
+   "pregunta": "¿Qué muestra la descomposición contable del crecimiento de Nariño?",
+   "debe_contener": "tasa de ocupación"
+  },
+  {
+   "pregunta": "¿Qué orden elige el AIC para el ARDL?",
+   "debe_contener": "ARDL(1,0)"
   }
  ],
  "referencias": [
@@ -297,6 +351,11 @@
    "cita": "Mason (2016)",
    "referencia": "Mason, A., Lee, R., y Jiang, J. X. (2016). Demographic dividends, human capital, and saving. The Journal of the Economics of Ageing, 7, 106–122. https://doi.org/10.1016/j.jeoa.2016.02.004",
    "resumen": "Enfoque: véase tabla; unidad y periodo: Países con NTA; método: OLG calibrado; resultado: Primer y segundo dividendo; rol del capital humano."
+  },
+  {
+   "cita": "McNown (2018)",
+   "referencia": "McNown, R., Sam, C. Y., y Goh, S. K. (2018). Bootstrapping the autoregressive distributed lag test for cointegration. Applied Economics, 50(13), 1509–1521. https://doi.org/10.1080/00036846.2017.1366643",
+   "resumen": ""
   },
   {
    "cita": "Nickell (1981)",

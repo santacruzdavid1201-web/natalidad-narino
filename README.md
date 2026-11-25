@@ -1,11 +1,11 @@
-# Natalidad, crecimiento económico y mercado laboral en Nariño, 2005–2024
+# Natalidad, ventana demográfica, crecimiento económico y mercado laboral en Nariño, 2005–2024
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/natalidad_narino.ipynb)
 [![Asistente RAG en Colab](https://img.shields.io/badge/Asistente_RAG-Colab-eb6834?logo=googlecolab)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/rag/consulta_rag.ipynb)
 [![Observatorio](https://img.shields.io/badge/Observatorio-web-2a78d6)](https://santacruzdavid1201-web.github.io/natalidad-narino/)
 
 Código reproducible del artículo final de **Seminario de Investigación Regional II** (Programa de Economía, Universidad de Nariño).
-Pregunta: ¿en qué magnitud y dirección se ha asociado la natalidad rezagada con el crecimiento del PIB real per cápita y con el mercado laboral de Nariño entre 2005 y 2024, y en qué se diferencia esa relación de la observada en los demás departamentos?
+Pregunta: ¿la caída de la natalidad amplió la ventana demográfica de Nariño entre 2005 y 2024, en qué magnitud se asoció esa ventana con el crecimiento del PIB real per cápita y con la participación laboral, y en qué se diferencia esa relación de la observada en los demás departamentos?
 
 ## Cómo ejecutarlo
 

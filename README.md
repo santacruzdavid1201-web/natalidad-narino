@@ -1,6 +1,8 @@
 # Natalidad, crecimiento económico y mercado laboral en Nariño, 2005–2024
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/natalidad_narino.ipynb)
+[![Asistente RAG en Colab](https://img.shields.io/badge/Asistente_RAG-Colab-eb6834?logo=googlecolab)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/rag/consulta_rag.ipynb)
+[![Observatorio](https://img.shields.io/badge/Observatorio-web-2a78d6)](https://santacruzdavid1201-web.github.io/natalidad-narino/)
 
 Código reproducible del artículo final de **Seminario de Investigación Regional II** (Programa de Economía, Universidad de Nariño).
 Pregunta: ¿en qué magnitud y dirección se ha asociado la natalidad rezagada con el crecimiento del PIB real per cápita y con el mercado laboral de Nariño entre 2005 y 2024, y en qué se diferencia esa relación de la observada en los demás departamentos?
@@ -33,17 +35,36 @@ jupyter notebook natalidad_narino.ipynb
 
 La sección 8 confronta los cuatro estimadores del mismo parámetro (Figura 9, Tabla 9).
 
+## Productos tecnológicos
+
+| Producto | Dónde | Qué hace |
+|---|---|---|
+| Código reproducible | `natalidad_narino.ipynb` | Descarga, armoniza, estima los cuatro métodos y genera cada tabla y figura del artículo (en español y en inglés: `salidas/figuras_en/`). |
+| Observatorio estadístico | `docs/` · https://santacruzdavid1201-web.github.io/natalidad-narino/ | Sitio web con series por departamento, mapa, transición demográfica, confrontación de métodos, estado de las fuentes y descargas. |
+| Rastreador de datos | `rastreador/` + `.github/workflows/rastreador.yml` | Cada lunes revisa las fuentes oficiales (encabezados HTTP, huellas SHA-256, páginas índice, API del Banco Mundial), registra el resultado en `rastreador/registro.csv`, vuelve a ejecutar el notebook y actualiza el observatorio. |
+| Asistente de consulta (RAG) | `rag/consulta_rag.ipynb` | Chat en Colab sobre el corpus del proyecto (artículo ES/EN, documentación, tablas, referencias) con recuperación híbrida BM25 + embeddings multilingües, modelo abierto Qwen2.5 y citas por documento, sección y página; incluye evaluación de la recuperación. |
+
+El artículo final está en `articulo/` (versiones en español e inglés).
+
 ## Estructura
 
 ```
 ├── natalidad_narino.ipynb   # notebook único: datos → análisis → figuras/tablas → paneles interactivos
+├── articulo/                # artículo final en español e inglés (PDF)
+├── docs/                    # observatorio web (GitHub Pages)
+├── observatorio/construir.py
+├── rastreador/              # verificación semanal de fuentes oficiales y registro
+├── rag/                     # asistente de consulta: núcleo, configuración y notebook de Colab
+├── config/                  # traducción de las figuras al inglés
 ├── requirements.txt
 ├── datos/
 │   ├── FUENTES.md           # URL oficial, entidad y fecha de consulta de cada archivo
 │   └── raw/                 # copias originales de las fuentes oficiales
 └── salidas/
     ├── figuras/             # Figura_1 … Figura_9
+    ├── figuras_en/          # las mismas figuras con textos en inglés
     ├── tablas/              # Tablas 2, 5, 6, 6c, 7, 7b, 8a, 8b, 9 (Excel y CSV)
+    ├── datos/               # bases armonizadas (CSV) que usan el observatorio y el RAG
     └── resultados_clave.json
 ```
 

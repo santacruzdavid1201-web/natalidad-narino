@@ -1,0 +1,347 @@
+{
+ "proyecto": "Natalidad, crecimiento económico y mercado laboral en Nariño, 2005–2024",
+ "documentos": [
+  {
+   "tipo": "pdf",
+   "ruta": "articulo/Natalidad_Narino_ES.pdf",
+   "nombre": "Artículo (español)"
+  },
+  {
+   "tipo": "pdf",
+   "ruta": "articulo/Natalidad_Narino_EN.pdf",
+   "nombre": "Article (English)"
+  },
+  {
+   "tipo": "markdown",
+   "ruta": "README.md",
+   "nombre": "README del repositorio"
+  },
+  {
+   "tipo": "markdown",
+   "ruta": "datos/FUENTES.md",
+   "nombre": "Fuentes de datos"
+  },
+  {
+   "tipo": "notebook",
+   "ruta": "natalidad_narino.ipynb",
+   "nombre": "Notebook (texto metodológico)"
+  },
+  {
+   "tipo": "clave",
+   "ruta": "salidas/resultados_clave.json",
+   "nombre": "Resultados clave"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_9_confrontacion.csv",
+   "nombre": "Tabla 10 del artículo",
+   "descripcion": "Confrontación de estimadores de los cuatro métodos"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_5_descriptivos.csv",
+   "nombre": "Tabla 5 del artículo",
+   "descripcion": "Nariño frente a los demás departamentos, promedios 2006–2024"
+  },
+  {
+   "tipo": "tabla",
+   "ruta": "salidas/tablas/Tabla_7_diagnosticos.csv",
+   "nombre": "Tabla 8 del artículo",
+   "descripcion": "Diagnósticos del panel de efectos fijos"
+  }
+ ],
+ "glosario_clave": {
+  "tbn_nar_1991": "Tasa bruta de natalidad de Nariño en 1991 (por mil)",
+  "tbn_nar_2009": "Tasa bruta de natalidad de Nariño en 2009 (por mil)",
+  "delta_tbn_nar": "Cambio de la TBN de Nariño entre 1991 y 2009 (puntos por mil)",
+  "delta_tbn_media_resto": "Cambio medio de la TBN en los demás departamentos, 1991–2009",
+  "tgf_nar_1985": "Tasa global de fecundidad de Nariño en 1985",
+  "tgf_nar_2017": "Tasa global de fecundidad de Nariño en 2017",
+  "anio_reemplazo_nar": "Año en que la fecundidad de Nariño cruzó el nivel de reemplazo",
+  "anio_cruce_dep": "Año en que la dependencia de vejez alcanza a la juvenil en Nariño",
+  "g_media_nar": "Crecimiento anual medio del PIB real per cápita de Nariño 2006–2024 (%)",
+  "tgp_nar_2024": "Tasa global de participación de Nariño en 2024 (%)",
+  "to_nar_2024": "Tasa de ocupación de Nariño en 2024 (%)",
+  "td_nar_2024": "Tasa de desocupación de Nariño en 2024 (%)",
+  "inf_23_media": "Informalidad media de 23 ciudades capitales (%)",
+  "beta1": "Panel de efectos fijos: coeficiente de la TBN rezagada en el resto del país",
+  "p_beta1_wild": "Valor p del bootstrap salvaje para beta1",
+  "beta_nar": "Panel de efectos fijos: efecto total en Nariño (beta1+beta2)",
+  "p_beta2_RI": "Valor p de aleatorización (placebos) de la interacción con Nariño",
+  "beta_largo_plazo": "Diferencias largas: pendiente del cambio de la TBN sobre el crecimiento",
+  "p_largo_plazo": "Valor p de la pendiente de diferencias largas",
+  "resid_nar_largo": "Residuo de Nariño en diferencias largas (p.p.)",
+  "gmm_tbn": "System GMM: coeficiente de corto plazo de la TBN rezagada",
+  "gmm_tbn_p": "Valor p del coeficiente System GMM",
+  "gmm_rho": "System GMM: persistencia del crecimiento (rho)",
+  "gmm_lp": "System GMM: efecto de largo plazo",
+  "gmm_J_p": "Valor p de la prueba de Hansen",
+  "gmm_ar2_p": "Valor p de la prueba AR(2)",
+  "ardl_largo_plazo": "ARDL de Nariño: multiplicador de largo plazo de la TBN sobre la TGP",
+  "bounds_F": "Estadístico F de la prueba de límites",
+  "bounds_p_I1": "Valor p de la prueba de límites (cota I(1))"
+ },
+ "preguntas": [
+  {
+   "pregunta": "¿Cuál es la pregunta de investigación del artículo?",
+   "debe_contener": "magnitud y dirección"
+  },
+  {
+   "pregunta": "¿Cuánto cayó la natalidad de Nariño entre 1991 y 2009?",
+   "debe_contener": "1991 y 2009"
+  },
+  {
+   "pregunta": "¿Qué resultado da el System GMM para la natalidad rezagada?",
+   "debe_contener": "System GMM"
+  },
+  {
+   "pregunta": "¿Qué dice la prueba de Hansen?",
+   "debe_contener": "Hansen"
+  },
+  {
+   "pregunta": "¿Por qué el panel de efectos fijos no encuentra relación?",
+   "debe_contener": "efectos fijos"
+  },
+  {
+   "pregunta": "What is the long-run multiplier of the ARDL model?",
+   "debe_contener": "multiplier"
+  },
+  {
+   "pregunta": "¿Qué es el sesgo de Nickell?",
+   "debe_contener": "Nickell"
+  },
+  {
+   "pregunta": "¿Qué encontraron Crespo Cuaresma y coautores?",
+   "debe_contener": "educación"
+  },
+  {
+   "pregunta": "¿Qué fuentes de datos usa el estudio?",
+   "debe_contener": "DANE"
+  },
+  {
+   "pregunta": "¿Cuál es la informalidad en Pasto?",
+   "debe_contener": "informalidad"
+  },
+  {
+   "pregunta": "¿Cuándo se cierra la ventana demográfica de Nariño?",
+   "debe_contener": "dependencia de vejez"
+  },
+  {
+   "pregunta": "Which hypothesis is methodological?",
+   "debe_contener": "H4"
+  },
+  {
+   "pregunta": "¿Qué hizo la inferencia por aleatorización?",
+   "debe_contener": "placebo"
+  },
+  {
+   "pregunta": "¿Qué limitaciones reconoce el artículo?",
+   "debe_contener": "limitaciones"
+  },
+  {
+   "pregunta": "¿Cómo se calcula la tasa bruta de natalidad?",
+   "debe_contener": "nacimientos implícitos"
+  },
+  {
+   "pregunta": "¿Qué recomienda el artículo para la política pública?",
+   "debe_contener": "productividad del empleo"
+  }
+ ],
+ "referencias": [
+  {
+   "cita": "Aiyar (2013)",
+   "referencia": "Aiyar, S., y Mody, A. (2013). The demographic dividend: Evidence from the Indian states. India Policy Forum, 9(1), 105–148. https://www.ncaer.org/publication/india-policy-forum-2012-13",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Estados de India; método: Panel con corrección por migración; resultado: Nivel y crecimiento de la PET significativos."
+  },
+  {
+   "cita": "Almeida (2023)",
+   "referencia": "Almeida, R. D. C. de, Tabak, B. M., y Moreira, T. B. S. (2023). Aspectos demográficos y convergencia regional de los ingresos en el Brasil: enfoque de datos de panel. Revista de la CEPAL, (139), 207–221. https://hdl.handle.net/11362/48803",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: 27 estados de Brasil, 2000–2014; método: MCO, EF y GMM comparados; resultado: GMM preferido; dependencia (−) en crecimiento."
+  },
+  {
+   "cita": "Arellano (1991)",
+   "referencia": "Arellano, M., y Bond, S. (1991). Some tests of specification for panel data: Monte Carlo evidence and an application to employment equations. The Review of Economic Studies, 58(2), 277–297. https://doi.org/10.2307/2297968",
+   "resumen": ""
+  },
+  {
+   "cita": "Baerlocher (2019)",
+   "referencia": "Baerlocher, D., Parente, S. L., y Rios-Neto, E. (2019). Economic effects of demographic dividend in Brazilian regions. The Journal of the Economics of Ageing, 14, 100198. https://doi.org/10.1016/j.jeoa.2019.100198",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Microrregiones de Brasil, 1970–2000; método: System GMM; resultado: Solo efecto contable tras controlar educación."
+  },
+  {
+   "cita": "Bidisha (2019)",
+   "referencia": "Bidisha, S. H., Abdullah, S. M., y Islam, M. M. (2019). Is there any long run relationship between dependency ratio and economic growth? Evidences from Bangladesh. Demography India, 48(2), 105–120.",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Bangladesh, 1972–2018; método: Cointegración de Johansen; resultado: Dependencia (−) en el largo plazo."
+  },
+  {
+   "cita": "Bloom (2009)",
+   "referencia": "Bloom, D. E., Canning, D., Fink, G., y Finlay, J. E. (2009). Fertility, female labor force participation, and the demographic dividend. Journal of Economic Growth, 14(2), 79–101. https://doi.org/10.1007/s10887-009-9039-9",
+   "resumen": "Enfoque: Variables instrumentales y NTA; unidad y periodo: Panel de países; método: VI: legislación sobre aborto; resultado: Fecundidad reduce participación femenina."
+  },
+  {
+   "cita": "Bloom (2003)",
+   "referencia": "Bloom, D. E., Canning, D., y Sevilla, J. (2003). The demographic dividend: A new perspective on the economic consequences of population change. RAND Corporation. https://www.rand.org/pubs/monograph_reports/MR1274.html",
+   "resumen": ""
+  },
+  {
+   "cita": "Bloom (1998)",
+   "referencia": "Bloom, D. E., y Williamson, J. G. (1998). Demographic transitions and economic miracles in emerging Asia. The World Bank Economic Review, 12(3), 419–455. https://doi.org/10.1093/wber/12.3.419",
+   "resumen": "Enfoque: Regresiones de crecimiento; unidad y periodo: Países, 1965–1990; método: Convergencia condicional, corte transversal; resultado: La PET explica entre 1/4 y 1/3 del crecimiento de Asia oriental."
+  },
+  {
+   "cita": "Blundell (1998)",
+   "referencia": "Blundell, R., y Bond, S. (1998). Initial conditions and moment restrictions in dynamic panel data models. Journal of Econometrics, 87(1), 115–143. https://doi.org/10.1016/S0304-4076(98)00009-8",
+   "resumen": ""
+  },
+  {
+   "cita": "Cameron (2008)",
+   "referencia": "Cameron, A. C., Gelbach, J. B., y Miller, D. L. (2008). Bootstrap-based improvements for inference with clustered errors. The Review of Economics and Statistics, 90(3), 414–427. https://doi.org/10.1162/rest.90.3.414",
+   "resumen": ""
+  },
+  {
+   "cita": "Choudhry (2010)",
+   "referencia": "Choudhry, M. T., y Elhorst, J. P. (2010). Demographic transition and economic growth in China, India and Pakistan. Economic Systems, 34(3), 218–236. https://ideas.repec.org/a/eee/ecosys/v34y2010i3p218-236.html",
+   "resumen": "Enfoque: Series de tiempo; unidad y periodo: China, India y Pakistán, 1961–2003; método: Solow-Swan con dependencias; resultado: Población explica 46 %, 39 % y 25 % del crecimiento."
+  },
+  {
+   "cita": "Crespo Cuaresma (2014)",
+   "referencia": "Crespo Cuaresma, J., Lutz, W., y Sanderson, W. (2014). Is the demographic dividend an education dividend? Demography, 51(1), 299–315. https://doi.org/10.1007/s13524-013-0245-x",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Países, 1970–2005; método: Panel con educación por edades; resultado: El efecto etario se reduce al controlar educación."
+  },
+  {
+   "cita": "Crombach (2022)",
+   "referencia": "Crombach, L., y Smits, J. (2022). The demographic window of opportunity and economic growth at sub-national level in 91 developing countries. Social Indicators Research, 161(1), 171–189. https://doi.org/10.1007/s11205-021-02802-8",
+   "resumen": "Enfoque: Subnacional y Colombia; unidad y periodo: 1921 regiones de 91 países; método: Multinivel; resultado: Más crecimiento en la ventana demográfica."
+  },
+  {
+   "cita": "Cruz (2018)",
+   "referencia": "Cruz, M., y Ahmed, S. A. (2018). On the impact of demographic change on economic growth and poverty. World Development, 105, 95–106. https://doi.org/10.1016/j.worlddev.2017.12.018",
+   "resumen": "Enfoque: Panel dinámico / GMM; unidad y periodo: ≈180 países, 1950–2010; método: System GMM; resultado: Más PET, más crecimiento y menos pobreza."
+  },
+  {
+   "cita": "Departamento Administrativo Nacional de Estadística (2024)",
+   "referencia": "Departamento Administrativo Nacional de Estadística [DANE]. (2024). Boletín técnico: Estadísticas vitales – nacimientos 2024pr. https://www.dane.gov.co/files/operaciones/EEVV/2024/19-dic-2024/bol-EEVV-Nacimientos-2024pr.pdf",
+   "resumen": ""
+  },
+  {
+   "cita": "Departamento Administrativo Nacional de Estadística (2025a)",
+   "referencia": "Departamento Administrativo Nacional de Estadística [DANE]. (2025a). Proyecciones y retroproyecciones de población departamental por sexo y edad, 1985–2050, y estimaciones de fecundidad, 1985–2017 (CNPV 2018) [Conjuntos de datos]. https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion",
+   "resumen": ""
+  },
+  {
+   "cita": "Departamento Administrativo Nacional de Estadística (2025b)",
+   "referencia": "Departamento Administrativo Nacional de Estadística [DANE]. (2025b). Gran Encuesta Integrada de Hogares: empleo informal y seguridad social, octubre–diciembre 2024 [Anexo estadístico]. https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIHEISS-oct-dic2024.xlsx",
+   "resumen": ""
+  },
+  {
+   "cita": "Departamento Administrativo Nacional de Estadística (2026a)",
+   "referencia": "Departamento Administrativo Nacional de Estadística [DANE]. (2026a). Producto interno bruto por departamento, base 2015, 2005–2025pr [Anexos estadísticos]. https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-departamentales",
+   "resumen": ""
+  },
+  {
+   "cita": "Departamento Administrativo Nacional de Estadística (2026b)",
+   "referencia": "Departamento Administrativo Nacional de Estadística [DANE]. (2026b). Gran Encuesta Integrada de Hogares: mercado laboral por departamento, serie 2007–2025 [Anexo estadístico]. https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIHDepartamentos-2025.xls",
+   "resumen": ""
+  },
+  {
+   "cita": "Gutiérrez-Forero (2015)",
+   "referencia": "Gutiérrez-Forero, D., y Castro-Escobar, E. (2015). Estado del bono demográfico y efectos en el desarrollo económico y social en Colombia. Revista Jurídicas, 12(2), 72–89. https://doi.org/10.17151/jurid.2015.12.2.6",
+   "resumen": ""
+  },
+  {
+   "cita": "Jaramillo-Echeverri (2026)",
+   "referencia": "Jaramillo-Echeverri, J., Acosta-Ordoñez, K. D., Acosta-Navarro, O. L., Ávila-Montealegre, O. I., Ayala-García, J., Bonet-Morón, J. A., Botero-García, J. A., Flórez-Flórez, L. A., Gallo, D., Galvis-Aponte, L. A., Guzmán-Finol, K., Haddad, E. A., Iregui-Bohórquez, A. M., López-Valenzuela, D. C., Melo-Becerra, L. A., Ospina-Tejeiro, J. J., Otero-Cortés, A. S., Parra-Polanía, J. A., Pérez-Valbuena, G. J., … Zardibia, S. (2026). Cambio demográfico y sus impactos económicos en Colombia. Ensayos sobre Política Económica, (112). Banco de la República. https://www.banrep.gov.co/es/publicaciones-investigaciones/espe/cambio-demografico-impactos-economicos",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Departamentos de Colombia; método: Escenarios demográficos; resultado: Unos departamentos envejecen; otros conservan bono."
+  },
+  {
+   "cita": "Kelley (2005)",
+   "referencia": "Kelley, A. C., y Schmidt, R. M. (2005). Evolution of recent economic-demographic modeling: A synthesis. Journal of Population Economics, 18(2), 275–300. https://doi.org/10.1007/s00148-005-0222-9",
+   "resumen": ""
+  },
+  {
+   "cita": "Kotschy (2020)",
+   "referencia": "Kotschy, R., Suarez Urtaza, P., y Sunde, U. (2020). The demographic dividend is more than an education dividend. Proceedings of the National Academy of Sciences, 117(42), 25982–25984. https://doi.org/10.1073/pnas.2012286117",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: 159 países, 1950–2015; método: Panel con capital humano por edades; resultado: Efecto de la PET positivo aun con capital humano."
+  },
+  {
+   "cita": "Lee (2006)",
+   "referencia": "Lee, R., y Mason, A. (2006). What is the demographic dividend? Finance & Development, 43(3), 16–17. https://www.imf.org/external/pubs/ft/fandd/2006/09/basics.htm",
+   "resumen": ""
+  },
+  {
+   "cita": "Lewis (1954)",
+   "referencia": "Lewis, W. A. (1954). Economic development with unlimited supplies of labour. The Manchester School, 22(2), 139–191. https://doi.org/10.1111/j.1467-9957.1954.tb00021.x",
+   "resumen": ""
+  },
+  {
+   "cita": "Lindh (1999)",
+   "referencia": "Lindh, T., y Malmberg, B. (1999). Age structure effects and growth in the OECD, 1950–1990. Journal of Population Economics, 12(3), 431–449. https://doi.org/10.1007/s001480050107",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: OCDE, 1950–1990; método: Panel quinquenal; resultado: 50–64 años (+); 65 y más (−)."
+  },
+  {
+   "cita": "Lutz (2019)",
+   "referencia": "Lutz, W., Crespo Cuaresma, J., Kebede, E., Prskawetz, A., Sanderson, W. C., y Striessnig, E. (2019). Education rather than age structure brings demographic dividend. Proceedings of the National Academy of Sciences, 116(26), 12798–12803. https://doi.org/10.1073/pnas.1820362116",
+   "resumen": ""
+  },
+  {
+   "cita": "Maloney (2004)",
+   "referencia": "Maloney, W. F. (2004). Informality revisited. World Development, 32(7), 1159–1178. https://doi.org/10.1016/j.worlddev.2004.01.008",
+   "resumen": ""
+  },
+  {
+   "cita": "Martínez Gómez (2013)",
+   "referencia": "Martínez Gómez, C. (2013). Descenso de la fecundidad, bono demográfico y crecimiento económico en Colombia, 1990–2010. Ministerio de Salud y Protección Social. https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/INEC/INV/1%20-%20DESCENSO%20DE%20LA%20FECUNDIDAD%20-%20BONO%20DEMOGRAFICO%20Y%20CRECIMIENTO%20ECONOMICO%20EN%20COLOMBIA%201990-2010.pdf",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Colombia, 1990–2010; método: Descriptivo-demográfico; resultado: Ventana abierta con heterogeneidad regional."
+  },
+  {
+   "cita": "Mason (2016)",
+   "referencia": "Mason, A., Lee, R., y Jiang, J. X. (2016). Demographic dividends, human capital, and saving. The Journal of the Economics of Ageing, 7, 106–122. https://doi.org/10.1016/j.jeoa.2016.02.004",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Países con NTA; método: OLG calibrado; resultado: Primer y segundo dividendo; rol del capital humano."
+  },
+  {
+   "cita": "Nickell (1981)",
+   "referencia": "Nickell, S. (1981). Biases in dynamic models with fixed effects. Econometrica, 49(6), 1417–1426. https://doi.org/10.2307/1911408",
+   "resumen": ""
+  },
+  {
+   "cita": "Pesaran (2021)",
+   "referencia": "Pesaran, M. H. (2021). General diagnostic tests for cross-sectional dependence in panels. Empirical Economics, 60(1), 13–50. https://doi.org/10.1007/s00181-020-01875-7",
+   "resumen": ""
+  },
+  {
+   "cita": "Pesaran (2001)",
+   "referencia": "Pesaran, M. H., Shin, Y., y Smith, R. J. (2001). Bounds testing approaches to the analysis of level relationships. Journal of Applied Econometrics, 16(3), 289–326. https://doi.org/10.1002/jae.616",
+   "resumen": ""
+  },
+  {
+   "cita": "Roodman (2009)",
+   "referencia": "Roodman, D. (2009). A note on the theme of too many instruments. Oxford Bulletin of Economics and Statistics, 71(1), 135–158. https://doi.org/10.1111/j.1468-0084.2008.00542.x",
+   "resumen": ""
+  },
+  {
+   "cita": "Solow (1956)",
+   "referencia": "Solow, R. M. (1956). A contribution to the theory of economic growth. The Quarterly Journal of Economics, 70(1), 65–94. https://doi.org/10.2307/1884513",
+   "resumen": ""
+  },
+  {
+   "cita": "Viloria de la Hoz (2007)",
+   "referencia": "Viloria de la Hoz, J. (2007). Economía del departamento de Nariño: ruralidad y aislamiento geográfico (Documentos de Trabajo sobre Economía Regional, n.º 87). Banco de la República. https://www.banrep.gov.co/sites/default/files/publicaciones/archivos/DTSER-87.pdf",
+   "resumen": ""
+  },
+  {
+   "cita": "Wei (2010)",
+   "referencia": "Wei, Z., y Hao, R. (2010). Demographic structure and economic growth: Evidence from China. Journal of Comparative Economics, 38(4), 472–491. https://doi.org/10.1016/j.jce.2010.08.002",
+   "resumen": "Enfoque: véase tabla; unidad y periodo: Provincias de China, 1989–2004; método: Panel provincial; resultado: Menor dependencia juvenil, más crecimiento."
+  },
+  {
+   "cita": "Zhang (2015)",
+   "referencia": "Zhang, H., Zhang, H., y Zhang, J. (2015). Demographic age structure and economic development: Evidence from Chinese provinces. Journal of Comparative Economics, 43(1), 170–185. https://doi.org/10.1016/j.jce.2014.07.002",
+   "resumen": ""
+  },
+  {
+   "cita": "Zivot (1992)",
+   "referencia": "Zivot, E., y Andrews, D. W. K. (1992). Further evidence on the great crash, the oil-price shock, and the unit-root hypothesis. Journal of Business & Economic Statistics, 10(3), 251–270. https://doi.org/10.1080/07350015.1992.10509904",
+   "resumen": ""
+  }
+ ]
+}

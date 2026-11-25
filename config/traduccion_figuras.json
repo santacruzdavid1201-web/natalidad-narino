@@ -66,5 +66,19 @@
  "β1+β2: Nariño": "β1+β2: Nariño",
  "β1: resto de departamentos": "β1: other departments",
  "β2 placebo (TBN t−15 × departamento)": "Placebo β2 (CBR t−15 × department)",
- "Mismo parámetro, cuatro métodos": "Same parameter, four methods"
+ "Mismo parámetro, cuatro métodos": "Same parameter, four methods",
+ "a) Ventana demográfica": "a) Demographic window",
+ "b) Ventana y crecimiento": "b) Window and growth",
+ "c) Contabilidad del crecimiento": "c) Growth accounting",
+ "Cambio de la TBN reciente 2006–2024 (‰)": "Change in recent CBR, 2006–2024 (‰)",
+ "Cambio de la PET 15–64 (p.p.)": "Change in working-age share 15–64 (p.p.)",
+ "Cambio de la PET 15–64, 2006–2024 (p.p.)": "Change in working-age share 15–64, 2006–2024 (p.p.)",
+ "Crecimiento medio per cápita (%)": "Mean per capita growth (%)",
+ "Contribución al crecimiento anual per cápita (p.p.)": "Contribution to annual per capita growth (p.p.)",
+ "Δln PIB per cápita": "Δln GDP per capita",
+ "Productividad (Y/O)": "Productivity (Y/E)",
+ "Tasa de ocupación (O/PET)": "Employment rate (E/WAP)",
+ "Demográfico (PET/N)": "Demographic (WAP/N)",
+ "Nariño\n2007–2024": "Nariño\n2007–2024",
+ "Ajuste ARDL(1,0)": "ARDL(1,0) fit"
 }

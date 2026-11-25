@@ -1,0 +1,19 @@
+﻿Modelo,Etapa,Método,Variable,Coef.,E. E.,Valor p,N,Detalle
+V-EF · PET 15–64 (% de la población),1. Ventana,Panel EF,TBN reciente (media 15 años),-0.833***,(0.094),0.0,627,R² within = 0.711
+V-EF · Dependencia juvenil,1. Ventana,Panel EF,TBN reciente (media 15 años),2.716***,(0.141),0.0,627,R² within = 0.857
+V-EF · Dependencia total,1. Ventana,Panel EF,TBN reciente (media 15 años),3.006***,(0.163),0.0,627,R² within = 0.797
+V-DL · Δ PET 15–64,1. Ventana,Diferencias largas,Δ TBN reciente 2006–2024,-0.763***,(0.174),0.0,33,R² = 0.607
+V-DL · Δ dependencia juvenil,1. Ventana,Diferencias largas,Δ TBN reciente 2006–2024,2.318***,(0.272),0.0,33,R² = 0.868
+V-DL · Δ dependencia total,1. Ventana,Diferencias largas,Δ TBN reciente 2006–2024,2.785***,(0.325),0.0,33,R² = 0.738
+EF · PET 15–64,2. Crecimiento,Panel EF,PET 15–64,-0.087,(0.209),0.68,627,
+EF · Dependencia total,2. Crecimiento,Panel EF,Dependencia total,-0.004,(0.056),0.942,627,
+EF · Δln PET 15–64,2. Crecimiento,Panel EF,Δln PET 15–64,-0.112,(0.381),0.77,594,
+EF-VI · Δln PET,2. Crecimiento,Panel EF-VI,Δln PET 15–64 (instrumentada),0.650,(0.436),0.136,561,F primera etapa = 113.1
+DL · Δ PET 2006–2024,2. Crecimiento,Diferencias largas,Δ PET 15–64,-0.253**,(0.123),0.04,33,
+DL · Δ PET + convergencia,2. Crecimiento,Diferencias largas,Δ PET 15–64,-0.269**,(0.121),0.026,33,ln y2006 = -0.343
+DL · Δ dependencia,2. Crecimiento,Diferencias largas,Δ dependencia total,0.089***,(0.033),0.007,33,
+DL-VI · Δ PET,2. Crecimiento,MC2E diferencias largas,Δ PET 15–64 (instrumentada),-0.316***,(0.100),0.002,33,F primera etapa = 65.2
+DL · Δ PET 2006–2017,2. Crecimiento,Diferencias largas,Δ PET 15–64,-0.059,(0.250),0.812,33,ventana: Δ PET sobre Δ TBN reciente = -0.896 (p = 0.000)
+DL · Δ PET 2017–2024,2. Crecimiento,Diferencias largas,Δ PET 15–64,-0.333**,(0.169),0.048,33,ventana: Δ PET sobre Δ TBN reciente = -0.662 (p = 0.020)
+GMM · PET 15–64,2. Crecimiento,System GMM,PET 15–64,0.110***,(0.030),0.0,561,ρ = 0.161; Hansen p = 0.68; AR(2) p = 0.85; instr. = 10
+GMM · Dependencia total,2. Crecimiento,System GMM,Dependencia total,-0.038***,(0.010),0.0,561,ρ = 0.161; Hansen p = 0.67; AR(2) p = 0.85; instr. = 10

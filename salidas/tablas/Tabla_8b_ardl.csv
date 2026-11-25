@@ -1,13 +1,17 @@
-﻿Concepto,Valor,Detalle
-"Orden elegido por AIC (p, q)","(1, 0)",
-φ: TGP (t−1),0.482**,(0.203)
-θ0: TBN (t−15),-3.379,(4.322)
-θ1: TBN (t−16),3.172,(4.191)
-δ: Dummy 2020,-4.924**,(2.070)
-Multiplicador de largo plazo (θ0+θ1)/(1−φ),-0.399,(0.365)
-"Prueba de límites PSS (F, caso 3)",2.920,p asintótico I(0) = 0.131 · I(1) = 0.285
-Breusch-Godfrey AR(1),0.045,p = 0.832
-Jarque-Bera (normalidad),1.471,p = 0.479
-Breusch-Pagan (heterocedasticidad),6.205,p = 0.184
-RESET de Ramsey,4.007,p = 0.071
-R² / observaciones,0.753,17
+﻿"Orden elegido por AIC (p, q) = (1, 0)","ARDL(1,0) · AIC, principal","ARDL(1,1) · robustez"
+φ: TGP (t−1),0.596*** (0.134),0.482** (0.203)
+θ0: TBN (t−15),-0.111 (0.199),-3.379 (4.322)
+θ1: TBN (t−16),—,3.172 (4.191)
+δ: Dummy 2020,-4.654** (2.005),-4.924** (2.070)
+Multiplicador de largo plazo,-0.275 (0.447),-0.399 (0.365)
+IC 95 % bootstrap del largo plazo,[-1.024; 0.594],[-1.021; 0.152]
+AIC,73.24,74.45
+R² / observaciones,0.741 / 17,0.753 / 17
+"Prueba de límites PSS (F, caso 3)","4.162 · p asintótico I(0) = 0.090, I(1) = 0.153 · cotas 5 % = 4.92–5.72",
+Prueba de límites por bootstrap,p bootstrap = 0.245 · valor crítico 5 % = 8.65,
+"AIC sin TBN (AR(1)) / ARDL(1,0) / ARDL(1,1)",71.65 / 73.24 / 74.45,
+t de π_y (bootstrap),-2.549 · p bootstrap = 0.245,
+Breusch-Godfrey AR(1),0.082 (p = 0.774),
+Jarque-Bera,2.280 (p = 0.320),
+Breusch-Pagan,7.020 (p = 0.071),
+RESET de Ramsey,3.005 (p = 0.109),

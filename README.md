@@ -1,8 +1,8 @@
 # Natalidad, ventana demográfica, crecimiento económico y mercado laboral en Nariño, 2005–2024
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/natalidad_narino.ipynb)
-[![Asistente RAG en Colab](https://img.shields.io/badge/Asistente_RAG-Colab-eb6834?logo=googlecolab)](https://colab.research.google.com/github/santacruzdavid1201-web/natalidad-narino/blob/main/rag/consulta_rag.ipynb)
-[![Observatorio](https://img.shields.io/badge/Observatorio-web-2a78d6)](https://santacruzdavid1201-web.github.io/natalidad-narino/)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/natalidad-narino/natalidad-narino/blob/main/natalidad_narino.ipynb)
+[![Asistente RAG en Colab](https://img.shields.io/badge/Asistente_RAG-Colab-eb6834?logo=googlecolab)](https://colab.research.google.com/github/natalidad-narino/natalidad-narino/blob/main/rag/consulta_rag.ipynb)
+[![Observatorio](https://img.shields.io/badge/Observatorio-web-2a78d6)](https://natalidad-narino.github.io/natalidad-narino/)
 
 Código reproducible del artículo final de **Seminario de Investigación Regional II** (Programa de Economía, Universidad de Nariño).
 Pregunta: ¿la caída de la natalidad amplió la ventana demográfica de Nariño entre 2005 y 2024, en qué magnitud se asoció esa ventana con el crecimiento del PIB real per cápita y con la participación laboral, y en qué se diferencia esa relación de la observada en los demás departamentos?
@@ -18,7 +18,7 @@ Pregunta: ¿la caída de la natalidad amplió la ventana demográfica de Nariño
 **En un computador propio** (Python 3.10+):
 
 ```bash
-git clone https://github.com/santacruzdavid1201-web/natalidad-narino.git
+git clone https://github.com/natalidad-narino/natalidad-narino.git
 cd natalidad-narino
 pip install -r requirements.txt
 jupyter notebook natalidad_narino.ipynb
@@ -40,7 +40,7 @@ La sección 8 confronta los cuatro estimadores del mismo parámetro (Figura 9, T
 | Producto | Dónde | Qué hace |
 |---|---|---|
 | Código reproducible | `natalidad_narino.ipynb` | Descarga, armoniza, estima los cuatro métodos y genera cada tabla y figura del artículo (en español y en inglés: `salidas/figuras_en/`). |
-| Observatorio estadístico | `docs/` · https://santacruzdavid1201-web.github.io/natalidad-narino/ | Sitio web con series por departamento, mapa, transición demográfica, confrontación de métodos, estado de las fuentes y descargas. |
+| Observatorio estadístico | `docs/` · https://natalidad-narino.github.io/natalidad-narino/ | Sitio web con series por departamento, mapa, transición demográfica, confrontación de métodos, estado de las fuentes y descargas. |
 | Rastreador de datos | `rastreador/` + `.github/workflows/rastreador.yml` | Cada lunes revisa las fuentes oficiales (encabezados HTTP, huellas SHA-256, páginas índice, API del Banco Mundial), registra el resultado en `rastreador/registro.csv`, vuelve a ejecutar el notebook y actualiza el observatorio. |
 | Asistente de consulta (RAG) | `rag/consulta_rag.ipynb` | Chat en Colab sobre el corpus del proyecto (artículo ES/EN, documentación, tablas, referencias) con recuperación híbrida BM25 + embeddings multilingües, modelo abierto Qwen2.5 y citas por documento, sección y página; incluye evaluación de la recuperación. |
 
